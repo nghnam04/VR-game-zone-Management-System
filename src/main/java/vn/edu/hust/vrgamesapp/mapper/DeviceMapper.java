@@ -10,6 +10,7 @@ public class DeviceMapper {
         DeviceDto deviceDto = new DeviceDto(
                 device.getId(),
                 device.getRoom() != null ? device.getRoom().getId() : null,
+                device.getName(),
                 device.getType(),
                 device.getStatus()
         );
@@ -25,6 +26,7 @@ public class DeviceMapper {
             room.setId(deviceDto.getRoomId());
             device.setRoom(room);
         }
+        device.setName(deviceDto.getName());
         device.setType(deviceDto.getType());
         device.setStatus(deviceDto.getStatus());
         return device;

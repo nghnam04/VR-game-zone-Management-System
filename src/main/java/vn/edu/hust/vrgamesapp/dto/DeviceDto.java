@@ -14,6 +14,7 @@ import vn.edu.hust.vrgamesapp.constant.DeviceType;
 public class DeviceDto {
     private Long id;
     private Long roomId;
+    private String name;
     private DeviceType type;
     private DeviceStatus status;
 }

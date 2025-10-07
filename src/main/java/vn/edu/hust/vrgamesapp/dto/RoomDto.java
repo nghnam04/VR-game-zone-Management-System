@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import vn.edu.hust.vrgamesapp.constant.RoomStatus;
 
+import java.util.List;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -15,4 +17,5 @@ public class RoomDto {
     private String name;
     private int capacity;
     private RoomStatus status;
+    private List<Long> games;
 }

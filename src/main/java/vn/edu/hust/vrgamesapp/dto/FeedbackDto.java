@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,6 +14,8 @@ import lombok.Setter;
 public class FeedbackDto {
     private Long id;
     private Long bookingId;
+    private Long userId;
     private int rating;
     private String comment;
+    private LocalDateTime feedbackDate;
 }

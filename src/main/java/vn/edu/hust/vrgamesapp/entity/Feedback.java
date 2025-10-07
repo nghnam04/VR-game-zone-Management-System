@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,6 +23,11 @@ public class Feedback {
     @JoinColumn(name = "booking_id")
     private Booking booking;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     private int rating;
     private String comment;
+    private LocalDateTime feedbackDate;
 }

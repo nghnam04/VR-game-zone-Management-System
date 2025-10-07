@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import vn.edu.hust.vrgamesapp.constant.RoomStatus;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,4 +25,11 @@ public class Room {
     @Enumerated(EnumType.STRING)
     private RoomStatus status;
 
+    @ManyToMany
+    @JoinTable(
+            name = "room_games",
+            joinColumns = @JoinColumn(name = "room_id"),
+            inverseJoinColumns = @JoinColumn(name = "game_id")
+    )
+    private List<Game> games;
 }

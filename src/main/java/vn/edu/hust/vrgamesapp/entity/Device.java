@@ -8,7 +8,6 @@ import lombok.Setter;
 import vn.edu.hust.vrgamesapp.constant.DeviceStatus;
 import vn.edu.hust.vrgamesapp.constant.DeviceType;
 
-
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +22,8 @@ public class Device {
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
+
+    private String name;
 
     @Enumerated(EnumType.STRING)
     private DeviceType type;
