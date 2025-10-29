@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    container_name: vrgames-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/vrgame
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:latest
+    container_name: vrgames-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=vrgame
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql_data:
