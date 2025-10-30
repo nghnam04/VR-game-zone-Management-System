@@ -1,6 +1,9 @@
 package vn.edu.hust.vrgamesapp.service;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,6 +20,8 @@ import vn.edu.hust.vrgamesapp.exception.VrAPIException;
 import vn.edu.hust.vrgamesapp.repository.RoleRepository;
 import vn.edu.hust.vrgamesapp.repository.UserRepository;
 import vn.edu.hust.vrgamesapp.security.JwtTokenProvider;
+import vn.edu.hust.vrgamesapp.security.TokenBlacklistService;
+
 
 @Service
 @AllArgsConstructor
@@ -27,6 +32,8 @@ public class AuthenticationService {
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
     private JwtTokenProvider jwtTokenProvider;
+    private TokenBlacklistService tokenBlacklistService;
+    private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
     public String login(LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -60,5 +67,20 @@ public class AuthenticationService {
 
         userRepository.save(user);
         return "User registered successfully!";
+    }
+
+    public void logout(HttpServletRequest request) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            logger.info("User logged out: {}", auth.getName());
+            SecurityContextHolder.clearContext();
+
+            // get toke from request & add to blacklist
+            String token = request.getHeader("Authorization");
+            if (token != null && token.startsWith("Bearer ")) {
+                token = token.substring(7);
+                tokenBlacklistService.blacklistToken(token);
+            }
+        }
     }
 }

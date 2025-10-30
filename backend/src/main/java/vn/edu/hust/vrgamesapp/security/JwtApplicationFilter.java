@@ -20,8 +20,9 @@ import java.io.IOException;
 @Component
 @AllArgsConstructor
 public class JwtApplicationFilter extends OncePerRequestFilter{
-    private JwtTokenProvider jwtTokenProvider;
-    private UserDetailsService userDetailsService;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final UserDetailsService userDetailsService;
+    private final TokenBlacklistService tokenBlacklistService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -32,26 +33,33 @@ public class JwtApplicationFilter extends OncePerRequestFilter{
         String token = getTokenFromRequest(request);
 
         //validate token
-        if(StringUtils.hasText(token) && jwtTokenProvider.validateToken(token)){
-            //get username from token
-            String username = jwtTokenProvider.getUsername(token);
+        if(StringUtils.hasText(token)){
+            if (tokenBlacklistService.isTokenBlacklisted(token)) {
+                response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token has been invalidated");
+                return;
+            }
 
-            //load the user from dtb
-            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+            if(jwtTokenProvider.validateToken(token)) {
+                //get username from token
+                String username = jwtTokenProvider.getUsername(token);
 
-            //create authentication object
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-                    userDetails,
-                    null,
-                    userDetails.getAuthorities()
-            );
+                //load the user from dtb
+                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-            authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                //create authentication object
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                        userDetails,
+                        null,
+                        userDetails.getAuthorities()
+                );
 
-            //add to SecurityContext
-            SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
+                //add to SecurityContext
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+            }
         }
+
         //allow request continuously go to another filter
         filterChain.doFilter(request, response);
     }

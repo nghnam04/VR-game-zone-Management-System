@@ -1,5 +1,6 @@
 package vn.edu.hust.vrgamesapp.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class FeedbackController {
 
     @PostMapping
     @PreAuthorize("hasRole('CUSTOMER')")
-    public ResponseEntity<FeedbackDto> createFeedback(@RequestBody FeedbackDto feedbackDto, Authentication authentication) {
+    public ResponseEntity<FeedbackDto> createFeedback(@Valid @RequestBody FeedbackDto feedbackDto, Authentication authentication) {
         return ResponseEntity.status(HttpStatus.CREATED).body(feedbackService.createFeedback(feedbackDto, authentication.getName()));
     }
 
@@ -37,7 +38,7 @@ public class FeedbackController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('CUSTOMER')")
-    public ResponseEntity<FeedbackDto> updateFeedback(@PathVariable Long id, @RequestBody FeedbackDto feedbackDto, Authentication authentication) {
+    public ResponseEntity<FeedbackDto> updateFeedback(@PathVariable Long id, @Valid @RequestBody FeedbackDto feedbackDto, Authentication authentication) {
         return ResponseEntity.ok(feedbackService.updateFeedback(id, feedbackDto, authentication.getName()));
     }
 

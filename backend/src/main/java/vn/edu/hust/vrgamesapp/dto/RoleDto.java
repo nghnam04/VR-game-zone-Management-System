@@ -1,5 +1,6 @@
 package vn.edu.hust.vrgamesapp.dto;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,5 +13,7 @@ import vn.edu.hust.vrgamesapp.constant.RoleEnum;
 @NoArgsConstructor
 public class RoleDto {
     private Long id;
+
+    @NotNull(message = "Role name is required")
     private RoleEnum name;
 }

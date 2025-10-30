@@ -1,5 +1,6 @@
 package vn.edu.hust.vrgamesapp.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class BookingController {
 
     @PostMapping
     @PreAuthorize("hasRole('CUSTOMER')")
-    public ResponseEntity<BookingDto> createBooking(@RequestBody BookingDto bookingDto, Authentication authentication) {
+    public ResponseEntity<BookingDto> createBooking(@Valid @RequestBody BookingDto bookingDto, Authentication authentication) {
         return ResponseEntity.status(HttpStatus.CREATED).body(bookingService.createBooking(bookingDto, authentication.getName()));
     }
 
@@ -43,7 +44,7 @@ public class BookingController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('CUSTOMER')")
-    public ResponseEntity<BookingDto> updateBooking(@PathVariable Long id, @RequestBody BookingDto bookingDto, Authentication authentication) {
+    public ResponseEntity<BookingDto> updateBooking(@PathVariable Long id, @Valid @RequestBody BookingDto bookingDto, Authentication authentication) {
         return ResponseEntity.ok(bookingService.updateBooking(id, bookingDto, authentication.getName()));
     }
 

@@ -1,5 +1,6 @@
 package vn.edu.hust.vrgamesapp.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class GameController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GameDto> createGame(@RequestBody GameDto gameDto) {
+    public ResponseEntity<GameDto> createGame(@Valid @RequestBody GameDto gameDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(gameService.createGame(gameDto));
     }
 
@@ -34,7 +35,7 @@ public class GameController {
 
     @PutMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<GameDto> updateGame(@PathVariable Long id, @RequestBody GameDto gameDto) {
+    public ResponseEntity<GameDto> updateGame(@PathVariable Long id, @Valid @RequestBody GameDto gameDto) {
         return ResponseEntity.ok(gameService.updateGame(id, gameDto));
     }
 

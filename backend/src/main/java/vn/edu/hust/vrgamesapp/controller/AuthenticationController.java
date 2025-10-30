@@ -1,5 +1,7 @@
 package vn.edu.hust.vrgamesapp.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +21,7 @@ public class AuthenticationController {
     private AuthenticationService authenticationService;
 
     @PostMapping(value = {"/login", "/signin"})
-    public ResponseEntity<JwtAuthResponse> login(@RequestBody LoginDto loginDto){
+    public ResponseEntity<JwtAuthResponse> login(@Valid @RequestBody LoginDto loginDto){
         String token = authenticationService.login(loginDto);
 
         JwtAuthResponse jwtAuthResponse = new JwtAuthResponse();
@@ -28,8 +30,14 @@ public class AuthenticationController {
     }
 
     @PostMapping(value = {"/register", "/signup"})
-    public ResponseEntity<String> register(@RequestBody RegisterDto registerDto) {
+    public ResponseEntity<String> register(@Valid @RequestBody RegisterDto registerDto) {
         String response = authenticationService.register(registerDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PostMapping(value = {"/logout", "/signout"})
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        authenticationService.logout(request);
+        return ResponseEntity.ok("Logout successful");
     }
 }
