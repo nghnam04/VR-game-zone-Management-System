@@ -12,11 +12,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vn.edu.hust.vrgamesapp.constant.RoleEnum;
+import vn.edu.hust.vrgamesapp.dto.JwtAuthResponse;
 import vn.edu.hust.vrgamesapp.dto.LoginDto;
 import vn.edu.hust.vrgamesapp.dto.RegisterDto;
+import vn.edu.hust.vrgamesapp.dto.UserDto;
 import vn.edu.hust.vrgamesapp.entity.Role;
 import vn.edu.hust.vrgamesapp.entity.User;
 import vn.edu.hust.vrgamesapp.exception.VrAPIException;
+import vn.edu.hust.vrgamesapp.mapper.RoleMapper;
 import vn.edu.hust.vrgamesapp.repository.RoleRepository;
 import vn.edu.hust.vrgamesapp.repository.UserRepository;
 import vn.edu.hust.vrgamesapp.security.JwtTokenProvider;
@@ -35,14 +38,27 @@ public class AuthenticationService {
     private TokenBlacklistService tokenBlacklistService;
     private static final Logger logger = LoggerFactory.getLogger(AuthenticationService.class);
 
-    public String login(LoginDto loginDto){
+    public JwtAuthResponse login(LoginDto loginDto){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginDto.getUsername(), loginDto.getPassword()
         ));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String token = jwtTokenProvider.generateToken(authentication);
-        return token;
+
+        User user = userRepository.findByUsername(loginDto.getUsername())
+                .orElseThrow(() -> new VrAPIException(HttpStatus.NOT_FOUND, "User not found"));
+
+        UserDto userDto = new UserDto(
+                user.getId(),
+                user.getName(),
+                user.getUsername(),
+                user.getEmail(),
+                null,
+                RoleMapper.mapToRoleDto(user.getRole())
+        );
+
+        return new JwtAuthResponse(token, userDto);
     }
 
     public String register(RegisterDto registerDto) {

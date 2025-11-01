@@ -38,7 +38,6 @@ public class FeedbackController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<FeedbackDto>> getAllFeedbacks() {
         return ResponseEntity.ok(feedbackService.getAllFeedbacks());
     }

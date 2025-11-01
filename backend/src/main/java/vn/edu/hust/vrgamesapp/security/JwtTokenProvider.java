@@ -9,12 +9,14 @@ import io.jsonwebtoken.security.UnsupportedKeyException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Component;
 import vn.edu.hust.vrgamesapp.exception.VrAPIException;
 
 import javax.crypto.SecretKey;
 import java.security.Key;
 import java.util.Date;
+import java.util.stream.Collectors;
 
 //Utils class
 @Component
@@ -36,8 +38,13 @@ public class JwtTokenProvider {
         Date currentDate = new Date();
         Date expireDate = new Date(currentDate.getTime() + jwtExpirationDate);
 
+        String roles = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(","));
+
         String token = Jwts.builder()
                 .subject(username)
+                .claim("role", roles)
                 .issuedAt(new Date())
                 .expiration(expireDate)
                 .signWith(key())
