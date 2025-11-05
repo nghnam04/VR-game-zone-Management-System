@@ -16,7 +16,7 @@ WIP
    ```
    <img width="1491" height="210" alt="Screenshot 2025-10-30 212951" src="https://github.com/user-attachments/assets/adc80f38-a140-4a03-90cb-3e6a637d73bb" />
 - MySQL và Redis đã được cấu hình để chạy cùng với ứng dụng (có thể dùng MySQL trên server khác).
-- Cài đặt [Maven](https://maven.apache.org/download.cgi) và môi trường.
+- Cài đặt [Maven](https://maven.apache.org/download.cgi) và môi trường (Có thể bỏ qua nếu cài IDE IntelliJ Idea vì có Maven tích hợp sẵn) .
   - Windows:
    ```batch
    mvn -v
@@ -31,7 +31,7 @@ cd VR-game-zone-Management-System/backend
 ```batch
 docker-compose up
 ```
-- Khởi chạy ứng dụng:
+- Khởi chạy ứng dụng (Nếu cài IDE IntelliJ Idea thì có thể bỏ qua bước này và chạy trực tiếp):
 ```batch
 mvn spring-boot:run
 ```
