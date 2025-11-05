@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import vn.edu.hust.vrgamesapp.dto.BookingDto;
 import vn.edu.hust.vrgamesapp.service.BookingService;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/bookings")
@@ -49,7 +51,7 @@ public class BookingController {
     }
 
     @PatchMapping("/{id}/cancel")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CUSTOMER')")
     public ResponseEntity<BookingDto> cancelBooking(@PathVariable Long id) {
         return ResponseEntity.ok(bookingService.cancelBooking(id));
     }
@@ -67,7 +69,7 @@ public class BookingController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
     public ResponseEntity<String> deleteBooking(@PathVariable Long id) {
         bookingService.deleteBooking(id);
         return ResponseEntity.ok("Booking deleted successfully");

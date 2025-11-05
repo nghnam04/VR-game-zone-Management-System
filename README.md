@@ -17,7 +17,7 @@ WIP
    <img width="1491" height="210" alt="Screenshot 2025-10-30 212951" src="https://github.com/user-attachments/assets/adc80f38-a140-4a03-90cb-3e6a637d73bb" />
 - MySQL và Redis đã được cấu hình để chạy cùng với ứng dụng (có thể dùng MySQL trên server khác).
 - Cài đặt [Maven](https://maven.apache.org/download.cgi) và môi trường.
-- - Windows:
+  - Windows:
    ```batch
    mvn -v
    ```
@@ -26,6 +26,10 @@ WIP
 ```batch
 git https://github.com/nghnam04/VR-game-zone-Management-System.git
 cd VR-game-zone-Management-System/backend
+```
+- Khởi tạo container MySQL + Redis (đối với lần đầu tiên):
+```batch
+docker-compose up
 ```
 - Khởi chạy ứng dụng:
 ```batch

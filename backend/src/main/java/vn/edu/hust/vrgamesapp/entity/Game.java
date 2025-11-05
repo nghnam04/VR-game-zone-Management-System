@@ -27,7 +27,7 @@ public class Game {
     private int duration;
     private double price; // 1 player per hour
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "room_games",
             joinColumns = @JoinColumn(name = "game_id"),

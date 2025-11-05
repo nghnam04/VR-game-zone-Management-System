@@ -117,14 +117,6 @@ public class UserService {
         if (user.getRole().getName().equals("ADMIN")) {
             throw new RuntimeException("Cannot delete ADMIN user");
         }
-        if (user.getFeedbacks() != null && !user.getFeedbacks().isEmpty()) {
-            user.getFeedbacks().clear();
-        }
-
-        if (user.getBookings() != null && !user.getBookings().isEmpty()) {
-            user.getBookings().clear();
-        }
-
         userRepository.delete(user);
     }
 }

@@ -17,17 +17,22 @@ import java.time.LocalDateTime;
 public class BookingDto {
     private Long id;
 
-    @NotNull(message = "User ID is required")
     @Positive(message = "User ID must be a positive number")
     private Long userId;
+
+    private String userName;
 
     @NotNull(message = "Game ID is required")
     @Positive(message = "Game ID must be a positive number")
     private Long gameId;
 
+    private String gameName;
+
     @NotNull(message = "Room ID is required")
     @Positive(message = "Room ID must be a positive number")
     private Long roomId;
+
+    private String roomName;
 
     @NotNull(message = "Start time is required")
     @FutureOrPresent(message = "Start time must be in the present or future")

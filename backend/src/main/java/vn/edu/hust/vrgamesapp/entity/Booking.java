@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import vn.edu.hust.vrgamesapp.constant.BookingStatus;
 import vn.edu.hust.vrgamesapp.constant.PaymentStatus;
 
@@ -23,6 +25,7 @@ public class Booking {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
 
     @ManyToOne

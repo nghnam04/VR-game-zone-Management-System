@@ -51,6 +51,12 @@ public class FeedbackService {
         return FeedbackMapper.mapToFeedbackDto(feedback);
     }
 
+    public List<FeedbackDto> getFeedbacksByUser(String username) {
+        return feedbackRepository.findByUserUsername(username).stream()
+                .map(FeedbackMapper::mapToFeedbackDto)
+                .collect(Collectors.toList());
+    }
+
     public FeedbackDto getFeedbackById(Long id) {
         Feedback feedback = feedbackRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Feedback not found with id: " + id));
@@ -91,5 +97,6 @@ public class FeedbackService {
             feedback.getBooking().setFeedback(null);
         }
         feedbackRepository.delete(feedback);
+
     }
 }

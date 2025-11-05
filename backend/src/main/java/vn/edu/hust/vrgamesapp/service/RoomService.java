@@ -144,6 +144,7 @@ public class RoomService {
             for (Game g : games) {
                 if (g.getRooms() == null) g.setRooms(new ArrayList<>());
                 if (!g.getRooms().contains(existing)) g.getRooms().add(existing);
+                gameRepository.save(g);
             }
         }
 

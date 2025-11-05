@@ -10,6 +10,7 @@ public class DeviceMapper {
         return new DeviceDto(
                 device.getId(),
                 device.getRoom() != null ? device.getRoom().getId() : null,
+                device.getRoom() != null ? device.getRoom().getName() : null,
                 device.getName(),
                 device.getType(),
                 device.getStatus(),

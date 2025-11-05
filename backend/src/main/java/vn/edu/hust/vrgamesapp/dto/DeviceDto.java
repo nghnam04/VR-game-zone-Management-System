@@ -19,6 +19,8 @@ public class DeviceDto {
     @Positive(message = "Room ID must be a positive number")
     private Long roomId;
 
+    private String roomName;
+
     @NotBlank(message = "Device name is required")
     @Size(max = 100, message = "Device name cannot exceed 100 characters")
     private String name;

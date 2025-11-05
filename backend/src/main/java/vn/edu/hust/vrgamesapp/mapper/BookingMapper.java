@@ -12,8 +12,11 @@ public class BookingMapper {
         BookingDto bookingDto = new BookingDto(
                 booking.getId(),
                 booking.getUser() != null ? booking.getUser().getId() : null,
+                booking.getUser() != null ? booking.getUser().getName() : null,
                 booking.getGame() != null ? booking.getGame().getId() : null,
+                booking.getGame() != null ? booking.getGame().getName() : null,
                 booking.getRoom() != null ? booking.getRoom().getId() : null,
+                booking.getRoom() != null ? booking.getRoom().getName() : null,
                 booking.getStartTime(),
                 booking.getStatus(),
                 booking.getNumberOfPlayers(),

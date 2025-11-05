@@ -30,7 +30,6 @@ public class DeviceController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<DeviceDto>> getAllDevices() {
         return ResponseEntity.ok(deviceService.getAllDevices());
     }

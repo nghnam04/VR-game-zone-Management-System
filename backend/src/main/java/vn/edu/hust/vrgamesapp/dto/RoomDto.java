@@ -28,4 +28,7 @@ public class RoomDto {
     private RoomStatus status;
     private List<Long> games;
     private List<Long> devices;
+
+    private List<String> gameNames;
+    private List<String> deviceNames;
 }

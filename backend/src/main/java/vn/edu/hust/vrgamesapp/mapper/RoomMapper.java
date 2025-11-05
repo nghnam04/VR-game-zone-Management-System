@@ -14,22 +14,27 @@ public class RoomMapper {
     public static RoomDto mapToRoomDto(Room room) {
         if (room == null) return null;
 
-        List<Long> games = room.getGames() != null
-                ? room.getGames().stream().map(Game::getId).collect(Collectors.toList())
-                : null;
+        RoomDto dto = new RoomDto();
+        dto.setId(room.getId());
+        dto.setName(room.getName());
+        dto.setCapacity(room.getCapacity());
+        dto.setStatus(room.getStatus());
 
-        List<Long> devices = room.getDevices() != null
-                ? room.getDevices().stream().map(Device::getId).collect(Collectors.toList())
-                : null;
+        dto.setGames(room.getGames() != null
+                ? room.getGames().stream().map(Game::getId).toList()
+                : null);
+        dto.setDevices(room.getDevices() != null
+                ? room.getDevices().stream().map(Device::getId).toList()
+                : null);
 
-        return new RoomDto(
-                room.getId(),
-                room.getName(),
-                room.getCapacity(),
-                room.getStatus(),
-                games,
-                devices
-        );
+        dto.setGameNames(room.getGames() != null
+                ? room.getGames().stream().map(Game::getName).toList()
+                : null);
+        dto.setDeviceNames(room.getDevices() != null
+                ? room.getDevices().stream().map(Device::getName).toList()
+                : null);
+
+        return dto;
     }
 
     public static Room mapToRoom(RoomDto roomDto) {

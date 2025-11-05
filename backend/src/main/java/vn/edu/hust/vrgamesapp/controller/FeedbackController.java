@@ -24,6 +24,13 @@ public class FeedbackController {
         return ResponseEntity.status(HttpStatus.CREATED).body(feedbackService.createFeedback(feedbackDto, authentication.getName()));
     }
 
+    @GetMapping("/user/me")
+    @PreAuthorize("hasRole('CUSTOMER')")
+    public ResponseEntity<List<FeedbackDto>> getMyFeedbacks(Authentication authentication) {
+        String username = authentication.getName();
+        return ResponseEntity.ok(feedbackService.getFeedbacksByUser(username));
+    }
+
     @GetMapping("/{id}")
     @PreAuthorize("hasAnyRole('ADMIN', 'STAFF', 'CUSTOMER')")
     public ResponseEntity<FeedbackDto> getFeedbackById(@PathVariable Long id) {

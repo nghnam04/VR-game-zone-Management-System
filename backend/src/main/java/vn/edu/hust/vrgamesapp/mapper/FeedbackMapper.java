@@ -8,14 +8,24 @@ import vn.edu.hust.vrgamesapp.entity.User;
 public class FeedbackMapper {
     public static FeedbackDto mapToFeedbackDto(Feedback feedback) {
         if (feedback == null) return null;
-        FeedbackDto feedbackDto = new FeedbackDto(
-                feedback.getId(),
-                feedback.getBooking() != null ? feedback.getBooking().getId() : null,
-                feedback.getUser() != null ? feedback.getUser().getId() : null,
-                feedback.getRating(),
-                feedback.getComment(),
-                feedback.getFeedbackDate()
-        );
+
+        FeedbackDto feedbackDto = new FeedbackDto();
+        feedbackDto.setId(feedback.getId());
+        feedbackDto.setBookingId(feedback.getBooking() != null ? feedback.getBooking().getId() : null);
+        feedbackDto.setUserId(feedback.getUser() != null ? feedback.getUser().getId() : null);
+        feedbackDto.setUserName(feedback.getUser() != null ? feedback.getUser().getName() : null);
+        feedbackDto.setRating(feedback.getRating());
+        feedbackDto.setComment(feedback.getComment());
+        feedbackDto.setFeedbackDate(feedback.getFeedbackDate());
+
+        if (feedback.getBooking() != null) {
+            if (feedback.getBooking().getGame() != null) {
+                feedbackDto.setGameName(feedback.getBooking().getGame().getName());
+            }
+            if (feedback.getBooking().getRoom() != null) {
+                feedbackDto.setRoomName(feedback.getBooking().getRoom().getName());
+            }
+        }
         return feedbackDto;
     }
 

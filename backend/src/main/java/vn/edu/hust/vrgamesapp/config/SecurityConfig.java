@@ -3,6 +3,7 @@ package vn.edu.hust.vrgamesapp.config;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -30,15 +31,22 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         try {
             http
-                    .csrf(csrf -> csrf.disable()) // Disable CSRF protection
-                    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // No session policy
+                    .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                    .csrf(csrf -> csrf.disable())
+                    .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(auth -> auth
-                            .requestMatchers("/api/auth/**").permitAll() // Allow public access to login endpoint
-                            .requestMatchers("/api/**").authenticated() // Require authentication to other apis
-                            .anyRequest().denyAll() // Disallow other requests
+                            // Public
+                            .requestMatchers("/api/auth/**").permitAll()
+                            .requestMatchers(HttpMethod.GET,
+                                    "/api/games/**",
+                                    "/api/rooms/**",
+                                    "/api/devices/**",
+                                    "/api/feedbacks").permitAll()
+                            // Authenticate
+                            .anyRequest().authenticated()
                     )
-                    .addFilterBefore(jwtApplicationFilter, UsernamePasswordAuthenticationFilter.class) //Add JWT filter before default authentication filter
-                    .cors(cors -> cors.configurationSource(corsConfigurationSource())); // Enable CORS with default settings
+                    .addFilterBefore(jwtApplicationFilter, UsernamePasswordAuthenticationFilter.class);
+
             return http.build();
         } catch (Exception e) {
             throw new RuntimeException("Error configuring security filter chain", e);

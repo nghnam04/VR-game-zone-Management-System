@@ -76,6 +76,9 @@ public class GameService {
 
     @Transactional
     public GameDto updateGame(Long id, GameDto gameDto) {
+        if (bookingRepository.existsByGameId(id)) {
+            throw new RuntimeException("Cannot delete game with active booking");
+        }
         Game existing = gameRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Game not found with id: " + id));
 
