@@ -19,6 +19,7 @@ public class RoomMapper {
         dto.setName(room.getName());
         dto.setCapacity(room.getCapacity());
         dto.setStatus(room.getStatus());
+        dto.setImageUrl(room.getImageUrl());
 
         dto.setGames(room.getGames() != null
                 ? room.getGames().stream().map(Game::getId).toList()
@@ -45,6 +46,7 @@ public class RoomMapper {
         room.setName(roomDto.getName());
         room.setCapacity(roomDto.getCapacity());
         room.setStatus(roomDto.getStatus());
+        room.setImageUrl(roomDto.getImageUrl());
 
         if (roomDto.getGames() != null) {
             List<Game> games = roomDto.getGames().stream().map(id -> {

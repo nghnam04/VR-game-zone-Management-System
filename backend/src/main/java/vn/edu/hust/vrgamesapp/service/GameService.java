@@ -30,6 +30,7 @@ public class GameService {
         game.setDescription(gameDto.getDescription());
         game.setDuration(gameDto.getDuration());
         game.setPrice(gameDto.getPrice());
+        game.setImageUrl(gameDto.getImageUrl());
         game.setMaxPlayers(gameDto.getMaxPlayers());
 
         if (gameDto.getRooms() != null && !gameDto.getRooms().isEmpty()) {
@@ -87,6 +88,7 @@ public class GameService {
         existing.setDescription(gameDto.getDescription());
         existing.setDuration(gameDto.getDuration());
         existing.setPrice(gameDto.getPrice());
+        existing.setImageUrl(gameDto.getImageUrl());
         existing.setMaxPlayers(gameDto.getMaxPlayers());
 
         if (gameDto.getRooms() != null && !gameDto.getRooms().isEmpty()) {

@@ -15,7 +15,6 @@ import vn.edu.hust.vrgamesapp.constant.DeviceType;
 public class DeviceDto {
     private Long id;
 
-    @NotNull(message = "Room ID is required")
     @Positive(message = "Room ID must be a positive number")
     private Long roomId;
 
@@ -30,4 +29,6 @@ public class DeviceDto {
     @Min(value = 1, message = "Quantity must be at least 1")
     @Max(value = 20, message = "Quantity cannot exceed 20")
     private int quantity;
+
+    private String imageUrl;
 }

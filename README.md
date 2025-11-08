@@ -142,3 +142,8 @@ npm run dev
 - [MySQL Documentation](https://dev.mysql.com/doc/) – Quản lý cơ sở dữ liệu.
 - [Redis Documentation](https://redis.io/documentation) – Cấu hình cache / session.
 - [JSON Web Token (JWT)](https://jwt.io/introduction) – Xác thực và phân quyền người dùng.
+
+---
+Mọi đóng góp và thắc mắc xin liên hệ:
+- ☎ _: (+84) 904 262 833_
+- ✉ _: nam.nh225213@sis.hust.edu.vn_

@@ -37,4 +37,8 @@ public class GameDto {
     @Min(value = 1, message = "Max players must be at least 1")
     @Max(value = 10, message = "Max players cannot exceed 10")
     private int maxPlayers;
+
+    private List<String> roomNames;
+
+    private String imageUrl;
 }

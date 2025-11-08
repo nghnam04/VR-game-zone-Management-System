@@ -38,7 +38,7 @@ public class RoomService {
         room.setName(roomDto.getName());
         room.setCapacity(roomDto.getCapacity());
         room.setStatus(RoomStatus.AVAILABLE);
-
+        room.setImageUrl(roomDto.getImageUrl());
         room.setDevices(new java.util.ArrayList<>());
 
         // Add games
@@ -120,6 +120,7 @@ public class RoomService {
         existing.setName(roomDto.getName());
         existing.setCapacity(roomDto.getCapacity());
         existing.setStatus(roomDto.getStatus());
+        existing.setImageUrl(roomDto.getImageUrl());
 
         // Update games
         if (roomDto.getGames() != null) {

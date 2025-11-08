@@ -31,4 +31,6 @@ public class RoomDto {
 
     private List<String> gameNames;
     private List<String> deviceNames;
+
+    private String imageUrl;
 }

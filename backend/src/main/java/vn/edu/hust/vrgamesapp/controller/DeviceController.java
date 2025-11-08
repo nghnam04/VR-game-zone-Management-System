@@ -24,7 +24,6 @@ public class DeviceController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<DeviceDto> getDeviceById(@PathVariable Long id) {
         return ResponseEntity.ok(deviceService.getDeviceById(id));
     }

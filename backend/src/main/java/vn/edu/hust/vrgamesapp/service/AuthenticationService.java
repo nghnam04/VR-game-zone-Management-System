@@ -91,7 +91,7 @@ public class AuthenticationService {
             logger.info("User logged out: {}", auth.getName());
             SecurityContextHolder.clearContext();
 
-            // get toke from request & add to blacklist
+            // get token from request & add to blacklist
             String token = request.getHeader("Authorization");
             if (token != null && token.startsWith("Bearer ")) {
                 token = token.substring(7);

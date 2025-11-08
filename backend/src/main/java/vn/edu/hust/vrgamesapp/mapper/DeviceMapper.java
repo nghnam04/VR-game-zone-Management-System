@@ -14,7 +14,8 @@ public class DeviceMapper {
                 device.getName(),
                 device.getType(),
                 device.getStatus(),
-                device.getQuantity()
+                device.getQuantity(),
+                device.getImageUrl()
         );
     }
 
@@ -33,6 +34,7 @@ public class DeviceMapper {
             device.setStatus(deviceDto.getStatus());
         }
         device.setQuantity(deviceDto.getQuantity());
+        device.setImageUrl(deviceDto.getImageUrl());
         return device;
     }
 }

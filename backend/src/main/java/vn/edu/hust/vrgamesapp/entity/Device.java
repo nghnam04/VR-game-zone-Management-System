@@ -33,4 +33,6 @@ public class Device {
     private DeviceStatus status = DeviceStatus.AVAILABLE;
 
     private int quantity;
+
+    private String imageUrl;
 }

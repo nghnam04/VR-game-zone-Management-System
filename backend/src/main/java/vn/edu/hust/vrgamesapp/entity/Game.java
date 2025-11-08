@@ -37,4 +37,6 @@ public class Game {
 
     @Column(name = "max_players")
     private int maxPlayers;
+
+    private String imageUrl;
 }

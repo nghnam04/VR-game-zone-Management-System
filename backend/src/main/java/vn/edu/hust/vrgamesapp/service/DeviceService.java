@@ -40,6 +40,7 @@ public class DeviceService {
         Device device = DeviceMapper.mapToDevice(dto);
         device.setStatus(DeviceStatus.AVAILABLE);
         device.setRoom(room);
+        device.setImageUrl(dto.getImageUrl());
 
         device = deviceRepository.save(device);
         return DeviceMapper.mapToDeviceDto(device);
@@ -78,6 +79,7 @@ public class DeviceService {
         existing.setType(dto.getType());
         existing.setQuantity(dto.getQuantity());
         existing.setRoom(newRoom);
+        existing.setImageUrl(dto.getImageUrl());
 
         if (dto.getStatus() != null) {
             existing.setStatus(dto.getStatus());
