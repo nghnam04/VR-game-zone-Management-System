@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --vr-bg: #071022;
+  --vr-blue: #00b4d8;
+  --vr-blue-2: #0096c7;
+  --glass: rgba(255, 255, 255, 0.06);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--vr-bg);
+  color: #e6eef8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+.font-display {
+  font-family: "Orbitron", sans-serif;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, var(--vr-blue), var(--vr-blue-2));
+  @apply text-white py-2 px-5 rounded-lg font-semibold shadow-lg transition duration-300 hover:opacity-90;
+}
+
+.btn-ghost {
+  @apply py-1.5 px-3 rounded-md border border-white/10 bg-transparent text-white transition duration-200 hover:bg-white/5;
+}
+
+.card-base {
+  background: var(--glass);
+  @apply p-6 rounded-xl shadow-xl border border-white/10 backdrop-blur-sm;
+}
+
+.input-base {
+  @apply w-full px-4 py-3 rounded-lg bg-gray-700/50 text-white border border-gray-600
+         focus:ring transition duration-150 placeholder:text-gray-500;
+  border-color: #606060;
+}
+
+.input-base:focus {
+  border-color: var(--vr-blue);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.3);
+}
+
+.card-glow {
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.1), 0 0 5px rgba(0, 180, 216, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 25px rgba(0, 180, 216, 0.3), 0 0 15px rgba(0, 180, 216, 0.2);
+}
