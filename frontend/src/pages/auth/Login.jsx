@@ -18,7 +18,7 @@ const Login = () => {
       const user = await login(username, password);
       if (user?.role?.name === "ADMIN") {
         navigate("/dashboard");
-      } else if (user.role === "STAFF") {
+      } else if (user?.role?.name === "STAFF") {
         navigate("/payment");
       } else {
         navigate("/");

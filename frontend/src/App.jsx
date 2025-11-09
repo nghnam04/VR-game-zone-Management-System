@@ -20,7 +20,7 @@ import DeviceDetail from "./pages/public/DeviceDetail";
 import Feedbacks from "./pages/public/Feedbacks";
 import BookingForm from "./pages/BookingForm";
 import Bookings from "./pages/Bookings";
-import Payment from "./pages/Payment";
+import Payment from "./pages/staff/Payment";
 
 // Admin Pages
 import DashBoard from "./pages/admin/Dashboard";
