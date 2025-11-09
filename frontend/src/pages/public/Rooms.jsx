@@ -1,4 +1,3 @@
-import React from "react";
 import RoomCard from "../../components/cards/RoomCard";
 import roomService from "../../services/roomService";
 import useFetch from "../../hooks/useFetch";

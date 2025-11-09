@@ -9,8 +9,8 @@ import ProtectedRoute from "./components/routes/ProtectedRoute";
 
 // Pages
 import Home from "./pages/public/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
 import Games from "./pages/public/Games";
 import GameDetail from "./pages/public/GameDetail";
 import Rooms from "./pages/public/Rooms";

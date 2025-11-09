@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import GameCard from "../../components/cards/GameCard";
 import gameService from "../../services/gameService";
 import useFetch from "../../hooks/useFetch";

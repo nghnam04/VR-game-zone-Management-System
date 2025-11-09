@@ -1,4 +1,3 @@
-import React from "react";
 import useFetch from "../../hooks/useFetch";
 import feedbackService from "../../services/feedBackService";
 import FeedbackCard from "../../components/cards/FeedbackCard";

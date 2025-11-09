@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams, Link } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import roomService from "../../services/roomService";

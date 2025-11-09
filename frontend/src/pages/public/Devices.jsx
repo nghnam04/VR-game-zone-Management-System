@@ -1,4 +1,3 @@
-import React from "react";
 import DeviceCard from "../../components/cards/DeviceCard";
 import deviceService from "../../services/deviceService";
 import useFetch from "../../hooks/useFetch";
