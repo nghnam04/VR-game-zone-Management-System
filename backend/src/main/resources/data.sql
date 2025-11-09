@@ -34,11 +34,11 @@ INSERT INTO users (id, name, email, username, password, role_id) VALUES
 INSERT INTO games (id, name, genre, description, duration, price, max_players, image_url) VALUES
 (1, 'Zombie Apocalypse VR', 'HORROR', 'Survive waves of zombies', 60, 120.00, 4, 'https://images.unsplash.com/photo-1679590060902-3556e64a676f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2664'),
 (2, 'Space Adventure VR', 'ADVENTURE', 'Explore distant galaxies', 90, 150.00, 5, 'https://plus.unsplash.com/premium_photo-1682124752476-40db22034a58?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1160'),
-(3, 'VR Racing Challenge', 'RACING', 'High-speed racing simulator', 45, 100.00, 2, 'https://images.unsplash.com/photo-1755591410048-acb997488ccd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'),
+(3, 'VR Racing Challenge', 'RACING', 'High-speed racing simulator', 70, 100.00, 2, 'https://images.unsplash.com/photo-1755591410048-acb997488ccd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'),
 (4, 'Mystery Puzzle VR', 'PUZZLE', 'Solve mind-bending puzzles', 75, 130.00, 3, 'https://images.unsplash.com/photo-1732780769402-b4ca6455ded0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1328'),
 (5, 'VR Sports Arena', 'SPORTS', 'Play virtual sports', 60, 110.00, 6, 'https://plus.unsplash.com/premium_photo-1684713510655-e6e31536168d?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'),
 (6, 'Warrior Quest VR', 'ADVENTURE', 'Epic RPG quest in VR', 120, 200.00, 4, 'https://images.unsplash.com/photo-1698450998458-0bc1045788a1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1528'),
-(7, 'Action Shooter VR', 'ACTION', 'Multiplayer shooting action', 50, 140.00, 5, 'https://images.unsplash.com/photo-1646063152596-fdc70092b1e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1414'),
+(7, 'Action Shooter VR', 'ACTION', 'Multiplayer shooting action', 65, 140.00, 5, 'https://images.unsplash.com/photo-1646063152596-fdc70092b1e4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1414'),
 (8, 'Haunted Mansion VR', 'HORROR', 'Explore the haunted house', 60, 120.00, 3, 'https://images.unsplash.com/photo-1639326605644-ffbfce9fe3df?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1472'),
 (9, 'Simulation City VR', 'SIMULATION', 'Build and manage a city', 80, 250.00, 1, 'https://images.unsplash.com/photo-1701497429720-a8c202753f9c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470'),
 (10, 'Underwater Explorer VR', 'ADVENTURE', 'Dive and discover ocean life', 80, 160.00, 4, 'https://images.unsplash.com/photo-1608209957132-587daea098f3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374');
@@ -53,7 +53,7 @@ INSERT INTO rooms (id, name, capacity, status, image_url) VALUES
 (6, 'Haunted Room', 5, 'MAINTENANCE', 'https://images.unsplash.com/photo-1481018085669-2bc6e4f00eed?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGF1bnRlZCUyMGhvdXNlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=800'),
 (7, 'Fantasy Room', 4, 'AVAILABLE', 'https://images.unsplash.com/photo-1514539079130-25950c84af65?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1469'),
 (8, 'Action Room', 6, 'IN_USE', 'https://images.unsplash.com/photo-1639932068669-9dccd9531338?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374'),
-(9, 'Puzzle Room', 4, 'AVAILABLE', 'https://images.unsplash.com/photo-1586527155101-48f717fe11c9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fHB1enpsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=800'),
+(9, 'Puzzle Room', 4, 'AVAILABLE', 'https://images.unsplash.com/photo-1590146758147-74a80644616a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1471'),
 (10, 'Simulation Room', 5, 'BOOKED', 'https://plus.unsplash.com/premium_photo-1709845562321-2779276b5e65?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1457');
 
 -- Insert Room_Games
@@ -112,11 +112,11 @@ INSERT INTO feedbacks (id, user_id, booking_id, rating, comment, feedback_date) 
 (1, 3, 1, 2, 'Too short and not realistic', NOW() - INTERVAL 2 DAY),
 (2, 6, 2, 5, 'Fantasy world is immersive', NOW() - INTERVAL 5 DAY),
 (3, 9, 3, 3, 'City simulation was interesting', NOW() - INTERVAL 8 DAY),
-(4, 10, 4, 5, 'Underwater exploration was breathtaking', NOW() - INTERVAL 9 DAY),
+(4, 10, 4, 4, 'Underwater exploration was breathtaking', NOW() - INTERVAL 9 DAY),
 (5, 11, 5, 4, 'Good experience but could be longer', NOW() - INTERVAL 1 DAY),
 (6, 12, 6, 5, 'Incredible graphics and fun gameplay', NOW() - INTERVAL 1 DAY),
 (7, 13, 7, 3, 'Average experience, needs improvement', NOW() - INTERVAL 3 DAY),
-(8, 14, 8, 5, 'Loved every moment in the sports arena', NOW() - INTERVAL 4 DAY),
+(8, 14, 8, 3, 'Loved every moment in the sports arena', NOW() - INTERVAL 4 DAY),
 (9, 15, 9, 4, 'Nice adventure, headset was smooth', NOW() - INTERVAL 6 DAY),
-(10, 16, 10, 5, 'Excellent quality and thrilling session!', NOW() - INTERVAL 7 DAY);
+(10, 16, 10, 4, 'Excellent quality and thrilling session!', NOW() - INTERVAL 7 DAY);
 

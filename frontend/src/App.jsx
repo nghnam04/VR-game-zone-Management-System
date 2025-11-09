@@ -8,16 +8,16 @@ import Footer from "./components/layout/Footer";
 import ProtectedRoute from "./components/routes/ProtectedRoute";
 
 // Pages
-import Home from "./pages/home/Home";
+import Home from "./pages/public/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Games from "./pages/Games";
-import GameDetail from "./pages/GameDetail";
-import Rooms from "./pages/Rooms";
-import RoomDetail from "./pages/RoomDetail";
-import Devices from "./pages/Devices";
-import DeviceDetail from "./pages/DeviceDetail";
-import Feedbacks from "./pages/Feedbacks";
+import Games from "./pages/public/Games";
+import GameDetail from "./pages/public/GameDetail";
+import Rooms from "./pages/public/Rooms";
+import RoomDetail from "./pages/public/RoomDetail";
+import Devices from "./pages/public/Devices";
+import DeviceDetail from "./pages/public/DeviceDetail";
+import Feedbacks from "./pages/public/Feedbacks";
 import BookingForm from "./pages/BookingForm";
 import Bookings from "./pages/Bookings";
 import Payment from "./pages/Payment";
@@ -54,8 +54,8 @@ const App = () => (
 
           {/* Customer Routes */}
           <Route element={<ProtectedRoute allowedRoles={["CUSTOMER"]} />}>
-            <Route path="/booking/:gameId" element={<BookingForm />} />
-            <Route path="/booking/:roomId" element={<BookingForm />} />
+            <Route path="/booking/game/:gameId" element={<BookingForm />} />
+            <Route path="/booking/room/:roomId" element={<BookingForm />} />
             <Route path="/booking/new" element={<BookingForm />} />
             <Route path="/bookings" element={<Bookings />} />
             <Route path="/booking/edit/:bookingId" element={<BookingForm />} />

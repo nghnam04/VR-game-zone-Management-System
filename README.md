@@ -77,14 +77,14 @@ mvn spring-boot:run
 
 ### II. Cài đặt frontend:
 
-- Cài đặt [NodeJS](https://nodejs.org/en/download) v22.12.0+ (npm đã được k)
+- Cài đặt [NodeJS](https://nodejs.org/en/download) v22.12.0+ (npm đã được kèm theo)
 - (Optional) Kiểm tra trạng thái cài đặt NodeJS:
 
 ```batch
 node -v
 ```
 
-![alt text](image.png)
+<img width="2333" height="120" alt="Screenshot 2025-11-09 014417" src="https://github.com/user-attachments/assets/32b7fc20-d5b6-4edd-80bf-ce706e135ecb" />
 
 - Chuyển đến thư mục `frontend`, cài đặt các dependencies:
 
