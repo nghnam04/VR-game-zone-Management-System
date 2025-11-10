@@ -34,6 +34,8 @@ public class BookingDto {
 
     private String roomName;
 
+    private int gameDuration;
+
     @NotNull(message = "Start time is required")
     @FutureOrPresent(message = "Start time must be in the present or future")
     private LocalDateTime startTime;

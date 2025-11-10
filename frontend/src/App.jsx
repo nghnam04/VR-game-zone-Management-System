@@ -18,8 +18,8 @@ import RoomDetail from "./pages/public/RoomDetail";
 import Devices from "./pages/public/Devices";
 import DeviceDetail from "./pages/public/DeviceDetail";
 import Feedbacks from "./pages/public/Feedbacks";
-import BookingForm from "./pages/BookingForm";
-import Bookings from "./pages/Bookings";
+import BookingForm from "./pages/customer/BookingForm";
+import Bookings from "./pages/customer/Bookings";
 import Payment from "./pages/staff/Payment";
 
 // Admin Pages
@@ -30,8 +30,8 @@ import RoomManagement from "./pages/admin/RoomManagement";
 import BookingManagement from "./pages/admin/BookingManagement";
 import FeedbackManagement from "./pages/admin/FeedbackManagement";
 import DeviceManagement from "./pages/admin/DeviceManagement";
-import UserFeedbacks from "./pages/UserFeedbacks";
-import UserFeedbackForm from "./pages/UserFeedbackForm";
+import UserFeedbacks from "./pages/customer/UserFeedbacks";
+import UserFeedbackForm from "./pages/customer/UserFeedbackForm";
 import NotFound from "./pages/NotFound";
 
 const App = () => (

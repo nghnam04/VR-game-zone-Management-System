@@ -17,6 +17,7 @@ public class BookingMapper {
                 booking.getGame() != null ? booking.getGame().getName() : null,
                 booking.getRoom() != null ? booking.getRoom().getId() : null,
                 booking.getRoom() != null ? booking.getRoom().getName() : null,
+                booking.getGame() != null ? booking.getGame().getDuration() : 0,
                 booking.getStartTime(),
                 booking.getStatus(),
                 booking.getNumberOfPlayers(),
