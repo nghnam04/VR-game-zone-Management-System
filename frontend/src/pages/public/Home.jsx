@@ -376,6 +376,10 @@ const Home = () => {
             answer="Thời gian chơi có thể linh động tùy theo từng game, tối thiểu là 60 phút. Nếu bạn muốn chơi lâu hơn, vui lòng đặt 2 slot liên tiếp để có trải nghiệm trọn vẹn."
           />
           <FAQItem
+            question="Tổng tiền đơn đặt phòng được tính như thế nào?"
+            answer="Tổng tiền đơn đặt phòng của bạn được tính dựa trên mức giá của từng game, số lượng người tham gia và thời lượng chơi. Cụ thể: Tổng tiền = Giá game × Số người × (Thời lượng chơi tính theo giờ)."
+          />
+          <FAQItem
             question="Chính sách hủy/đổi lịch đặt phòng như thế nào?"
             answer="Bạn có thể hủy đặt phòng qua mục 'Đặt Phòng'. Đối với đơn đặt phòng đã được duyệt và thanh toán, việc hủy hoặc đổi lịch cần liên hệ bộ phận hỗ trợ."
           />

@@ -14,16 +14,15 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
     boolean existsByGameId(Long id);
     boolean existsByRoomIdAndStatusIn(Long id, List<BookingStatus> statuses);
 
-    @Query("SELECT b FROM Booking b WHERE b.room.id = :roomId AND b.startTime BETWEEN :start AND :end")
-    List<Booking> findByRoomIdAndStartTimeBetween(Long roomId, LocalDateTime start, LocalDateTime end);
-
     @Query("SELECT b FROM Booking b JOIN b.user u WHERE u.username = :username")
     List<Booking> findByUsername(String username);
 
-    @Query("SELECT b FROM Booking b WHERE b.status = :status AND b.paymentStatus = :paymentStatus AND b.startTime < :cutoff")
-    List<Booking> findByStatusAndPaymentStatusAndStartTimeBefore(BookingStatus status, PaymentStatus paymentStatus, LocalDateTime cutoff);
+    @Query("SELECT b FROM Booking b WHERE b.paymentStatus = :paymentStatus AND b.startTime < :cutoff")
+    List<Booking> findByPaymentStatusAndStartTimeBefore(PaymentStatus paymentStatus, LocalDateTime cutoff);
 
     List<Booking> findByStatus(BookingStatus bookingStatus);
 
     List<Booking> findByRoomId(Long roomId);
+
+    List<Booking> findByStatusAndPaymentStatusAndEndTimeBefore(BookingStatus bookingStatus, PaymentStatus paymentStatus, LocalDateTime endTime);
 }
