@@ -8,10 +8,9 @@ import SectionHeading from "../../components/common/SectionHeading";
 import ReviewCard from "../../components/cards/ReviewCard";
 import FAQItem from "../../components/common/FAQItem";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
-
-const bgImageUrl = "/src/assets/vrgame-bg.jpg";
-const deviceImageUrl = "/src/assets/devices.jpg";
-const roomImageUrl = "/src/assets/rooms.jpg";
+import bgImage from "../../assets/vrgame-bg.jpg";
+import deviceImage from "../../assets/devices.jpg";
+import roomImage from "../../assets/rooms.jpg";
 
 const Home = () => {
   const [featuredGames, setFeaturedGames] = useState([]);
@@ -56,7 +55,7 @@ const Home = () => {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url(${bgImageUrl})` }}
+          style={{ backgroundImage: `url(${bgImage})` }}
         >
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
         </div>
@@ -121,7 +120,7 @@ const Home = () => {
           transition={{ duration: 0.7 }}
         >
           <img
-            src={deviceImageUrl}
+            src={deviceImage}
             alt="VR Devices"
             className="rounded-xl shadow-2xl w-full"
           />
@@ -183,7 +182,7 @@ const Home = () => {
           transition={{ duration: 0.7 }}
         >
           <img
-            src={roomImageUrl}
+            src={roomImage}
             alt="VR Rooms"
             className="rounded-xl shadow-2xl w-full"
           />

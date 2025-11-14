@@ -1,4 +1,4 @@
-import formatTimeV2 from "../utils/formatTimev2";
+import formatTimeV2 from "../utils/formatTimeV2";
 import formatCurrency from "../utils/formatCurrency";
 
 const getStatusClass = (status) => {

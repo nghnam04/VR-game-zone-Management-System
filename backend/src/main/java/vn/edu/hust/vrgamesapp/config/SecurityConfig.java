@@ -35,6 +35,7 @@ public class SecurityConfig {
                     .csrf(csrf -> csrf.disable())
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                     .authorizeHttpRequests(auth -> auth
+                            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                             // Public
                             .requestMatchers("/api/auth/**").permitAll()
                             .requestMatchers(HttpMethod.GET,
@@ -66,7 +67,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "https://vrealm-game-zone.netlify.app"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173",
+                "https://vrealm-game-zone.netlify.app",
+                "https://vrealm-game-zone.vercel.app",
+                "https://vrealm-game-zone.onrender.com"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);

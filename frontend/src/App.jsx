@@ -23,7 +23,7 @@ import Bookings from "./pages/customer/Bookings";
 import Payment from "./pages/staff/Payment";
 
 // Admin Pages
-import DashBoard from "./pages/admin/Dashboard";
+import DashBoard from "./pages/admin/DashBoard";
 import UserManagement from "./pages/admin/UserManagement";
 import GameManagement from "./pages/admin/GameManagement";
 import RoomManagement from "./pages/admin/RoomManagement";
