@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="space-y-3 mb-4">
         <p className="font-semibold text-gray-300">VRealm Game Zone</p>
 
-        <div className="flex justify-center gap-4 text-xs sm:text-sm">
+        <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
           <span className="flex items-center gap-1">
             <FaPhoneAlt /> (+84) 904 262 833
           </span>
@@ -19,8 +19,8 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-gray-500">
-        &copy; {new Date().getFullYear()} {" "} Designed & Developed by
+      <p className="text-gray-500 text-center">
+        &copy; {new Date().getFullYear()} Designed & Developed by
         <span className="text-vr-blue-2 font-medium"> Nguyen Hoang Nam</span>.
       </p>
     </footer>

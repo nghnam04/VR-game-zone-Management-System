@@ -6,6 +6,9 @@ export default {
         display: ["Orbitron", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
+      backdropBlur: {
+        xs: "1px",
+      },
     },
   },
   plugins: [],

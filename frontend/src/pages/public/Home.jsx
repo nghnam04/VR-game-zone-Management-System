@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import gameService from "../../services/gameService";
 import feedbackService from "../../services/feedBackService";
 import GameCard from "../../components/cards/GameCard";
@@ -9,6 +9,9 @@ import ReviewCard from "../../components/cards/ReviewCard";
 import FAQItem from "../../components/common/FAQItem";
 import LoadingSpinner from "../../components/common/LoadingSpinner";
 import bgImage from "../../assets/vrgame-bg.jpg";
+import bgImage1 from "../../assets/vrgame-bg1.jpg";
+import bgImage2 from "../../assets/vrgame-bg2.jpg";
+import bgImage3 from "../../assets/vrgame-bg3.jpg";
 import deviceImage from "../../assets/devices.jpg";
 import roomImage from "../../assets/rooms.jpg";
 
@@ -16,6 +19,17 @@ const Home = () => {
   const [featuredGames, setFeaturedGames] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const bgImages = [bgImage3, bgImage, bgImage1, bgImage2];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % bgImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const fetchGamesAndReviews = async () => {
@@ -53,11 +67,40 @@ const Home = () => {
       {/* Hero Section */}
       <section className="h-[80vh] min-h-[500px] relative flex items-center justify-center text-center rounded-2xl overflow-hidden p-6">
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center z-0"
-          style={{ backgroundImage: `url(${bgImage})` }}
-        >
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        <div className="absolute inset-0 overflow-hidden z-0">
+          {bgImages.map((img, i) => {
+            const isCurrent = i === bgIndex;
+            const isNext = i === (bgIndex + 1) % bgImages.length;
+            if (!isCurrent && !isNext) return null;
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ x: isCurrent ? 0 : "100%" }}
+                animate={{ x: isCurrent ? "-100%" : 0 }}
+                transition={{ duration: 1.25, ease: "easeInOut" }}
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${img})` }}
+              >
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-xs"></div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Pagination Dots */}
+        <div className="absolute bottom-6 w-full flex justify-center gap-3 z-20">
+          {bgImages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setBgIndex(i)}
+              className={`w-3 h-3 rounded-full transition-all ${
+                bgIndex === i
+                  ? "bg-white scale-125"
+                  : "bg-gray-500 hover:bg-gray-300"
+              }`}
+            ></button>
+          ))}
         </div>
 
         {/* Content */}
