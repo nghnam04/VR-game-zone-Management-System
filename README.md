@@ -59,8 +59,8 @@ VR-game-zone-Management-System/
 - Clone repository về máy và chuyển đến thư mục `backend`:
 
 ```batch
-git clone https://github.com/nghnam04/VR-game-zone-Management-System.git
-cd VR-game-zone-Management-System/backend
+git clone https://github.com/nghnam04/VRealm-game-zone.git
+cd VRealm-game-zone/backend
 ```
 
 - Khởi tạo container MySQL + Redis (đối với lần đầu tiên):
@@ -131,6 +131,12 @@ npm run dev
 6. **Feedback**
    - Khách hàng gửi phản hồi cá nhân sau khi chơi game tại Vrealm.
    - Admin có thể xem và quản lý tất cả feedback.
+
+## 🌍 Deployment Links
+
+- 🔗 Frontend (Client): https://vrealm-game-zone.vercel.app
+
+- 🔗 Backend (Server):https://vrealm-game-zone.onrender.com
 
 ## 📚 Tài liệu tham khảo
 
